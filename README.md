@@ -1,8 +1,13 @@
 # wxscribe
 
 Transcribe any audio file and convert to a Microsoft Word document. Simple
-wrapper around ffmpeg, whisperx (whisper + pyannote) and pandoc, initially
-intended for interview transcription. Assembled by @4yn.
+wrapper around ffmpeg, [whisperx](https://github.com/m-bain/whisperx) (whisper +
+pyannote) and pandoc, initially intended for interview transcription. Assembled
+by @4yn.
+
+[Quickstart colab notebook (make sure to pick the GPU runtime and to shutdown
+once
+done)](https://colab.research.google.com/drive/1wrAGHHXknA1GEOtvOltTYkBa_lsbPEDn?usp=sharing)
 
 ## Usage
 
@@ -10,10 +15,12 @@ intended for interview transcription. Assembled by @4yn.
 ./wxscribe.py audio_file_1 audio_file_2 audio_file_3 ...
 ```
 
-You will need to accept the pyannote model ToC and generate a huggingface model
-hub token for the script to work. Provide the token using command line option
-`--hf-token hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` or using the
-`HUGGING_FACE_HUB_TOKEN` environment variable.
+You will need to [accept the pyannote model
+ToC](https://huggingface.co/pyannote/speaker-diarization) and [generate a
+huggingface model hub token](https://huggingface.co/settings/tokens) for the
+script to work. Provide the token using command line option `--hf-token
+hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` or using the `HUGGING_FACE_HUB_TOKEN`
+environment variable.
 
 An audio file `my_audio.mp3` will be transcribed to `my_audio.docx`. If some
 `my_audio.docx` already exists it will be skipped; delete the old document if
@@ -25,8 +32,10 @@ you want to repeat the transcription.
 pip install git+https://github.com/m-bain/whisperx.git ffmpeg-python pandoc
 ```
 
-Also requires `pandoc=2.x` and `ffmpeg` installed on system. Alternatively, use
-this script on Google Colab as it already has these system dependencies.
+Also requires `pandoc=2.x` and `ffmpeg` installed on system. Alternatively, [use
+this script on Google
+Colab](https://colab.research.google.com/drive/1wrAGHHXknA1GEOtvOltTYkBa_lsbPEDn?usp=sharing)
+as it already has these dependencies installed.
 
 ### Example Usage
 
